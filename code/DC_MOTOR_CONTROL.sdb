@@ -1,0 +1,160 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F887 ]
+[d frameptr 6 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"5 C:\Users\Aluno\Desktop\Motor\code\lcd.c
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
+"23
+[v _lcd_cmd lcd_cmd `(uc  1 e 1 0 ]
+"35
+[v _lcd_data lcd_data `(uc  1 e 1 0 ]
+"63
+[v _lcd_set_position lcd_set_position `(uc  1 e 1 0 ]
+"81
+[v _separa separa `(uc  1 e 1 0 ]
+"12 C:\Users\Aluno\Desktop\Motor\code\main.c
+[v _main main `(v  1 e 1 0 ]
+"226 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f887.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"350
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"770
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"925
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
+"939
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @23 ]
+"1236
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1243
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+"1414
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1476
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1538
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1600
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2039
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"2968
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"2975
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"3385
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3447
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"8 C:\Users\Aluno\Desktop\Motor\code\main.c
+[v _valor valor `i  1 e 2 0 ]
+"12
+[v _main main `(v  1 e 1 0 ]
+{
+"53
+} 0
+"81 C:\Users\Aluno\Desktop\Motor\code\lcd.c
+[v _separa separa `(uc  1 e 1 0 ]
+{
+"87
+[v separa@unidade unidade `ui  1 a 2 14 ]
+"86
+[v separa@dezena dezena `ui  1 a 2 12 ]
+"85
+[v separa@centena centena `ui  1 a 2 10 ]
+"84
+[v separa@milhar milhar `ui  1 a 2 6 ]
+"81
+[v separa@valor valor `i  1 p 2 4 ]
+"113
+} 0
+"63
+[v _lcd_set_position lcd_set_position `(uc  1 e 1 0 ]
+{
+[v lcd_set_position@x x `uc  1 a 1 wreg ]
+"65
+[v lcd_set_position@pos pos `uc  1 a 1 6 ]
+"63
+[v lcd_set_position@x x `uc  1 a 1 wreg ]
+[v lcd_set_position@y y `uc  1 p 1 3 ]
+"65
+[v lcd_set_position@x x `uc  1 a 1 5 ]
+"79
+} 0
+"35
+[v _lcd_data lcd_data `(uc  1 e 1 0 ]
+{
+[v lcd_data@data data `uc  1 a 1 wreg ]
+"37
+[v lcd_data@high_nibble high_nibble `uc  1 a 1 3 ]
+"38
+[v lcd_data@low_nibble low_nibble `uc  1 a 1 2 ]
+"35
+[v lcd_data@data data `uc  1 a 1 wreg ]
+"40
+[v lcd_data@data data `uc  1 a 1 4 ]
+"62
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 6 ]
+[v ___awmod@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"35
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 2 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 1 ]
+[v ___awdiv@counter counter `uc  1 a 1 0 ]
+"6
+[v ___awdiv@divisor divisor `i  1 p 2 7 ]
+[v ___awdiv@dividend dividend `i  1 p 2 9 ]
+"42
+} 0
+"5 C:\Users\Aluno\Desktop\Motor\code\lcd.c
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
+{
+"21
+} 0
+"23
+[v _lcd_cmd lcd_cmd `(uc  1 e 1 0 ]
+{
+[v lcd_cmd@cmd cmd `uc  1 a 1 wreg ]
+[v lcd_cmd@cmd cmd `uc  1 a 1 wreg ]
+"25
+[v lcd_cmd@cmd cmd `uc  1 a 1 2 ]
+"34
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
