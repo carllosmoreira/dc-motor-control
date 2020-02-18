@@ -1,6 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"535 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f887.h
+[v _PIR1 `Vuc ~T0 @X0 0 e@12 ]
+"655
+[v _TMR1L `Vuc ~T0 @X0 0 e@14 ]
+"662
+[v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
 [p mainexit ]
-"1414 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f887.h
+"1414
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 "3385
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
@@ -16,7 +22,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "153 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h
 [v __delay `JF1637 ~T0 @X0 0 e ]
 [p i __delay ]
-"10 C:\Users\Aluno\Desktop\Motor\code\lcd.h
+"10 C:\Users\Aluno\Desktop\Projeto 6\code\lcd.h
 [v _lcd_init `(uc ~T0 @X0 0 ef ]
 "770 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f887.h
 [v _T2CON `Vuc ~T0 @X0 0 e@18 ]
@@ -26,14 +32,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CCP1CON `Vuc ~T0 @X0 0 e@23 ]
 "925
 [v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
+"457
+[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"1700
+[v _PIE1 `Vuc ~T0 @X0 0 e@140 ]
+"669
+[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
 "1236
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 "2968
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
-"15 C:\Users\Aluno\Desktop\Motor\code\lcd.h
+"15 C:\Users\Aluno\Desktop\Projeto 6\code\lcd.h
 [v _separa `(uc ~T0 @X0 0 ef1`i ]
-"350 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f887.h
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"288 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f887.h
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1553,7 +1565,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 14: uint8_t lcd_set_position(uint8_t x,uint8_t y);
 [; ;lcd.h: 15: uint8_t separa(int16_t valor);
 [; ;lcd.h: 16: uint8_t lcd_print_text(uint8_t x, uint8_t y, uint8_t* text);
-"8 C:\Users\Aluno\Desktop\Motor\code\main.c
+"8 C:\Users\Aluno\Desktop\Projeto 6\code\main.c
 [v _valor `i ~T0 @X0 1 e ]
 [i _valor
 -> 0 `i
@@ -1565,112 +1577,170 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `f
 ]
 [; ;main.c: 9: float valor_f =0;
-[v $root$_main `(v ~T0 @X0 0 e ]
+"10
+[v _periodic_interrupt `uc ~T0 @X0 1 e ]
+[i _periodic_interrupt
+-> -> 0 `i `uc
+]
+[; ;main.c: 10: uint8_t periodic_interrupt =0;
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+[v F1694 `(v ~T0 @X0 1 tf ]
 "12
-[v _main `(v ~T0 @X0 1 ef ]
+[v _ISR `IF1694 ~T0 @X0 1 e ]
+"13
 {
-[; ;main.c: 12: void main(void) {
-[e :U _main ]
+[; ;main.c: 12: interrupt void ISR(void)
+[; ;main.c: 13: {
+[e :U _ISR ]
 [f ]
-[; ;main.c: 15: TRISA | = (1<<0);
+[; ;main.c: 14: if ( PIR1 & (1<<0)){
+"14
+[e $ ! != & -> _PIR1 `i << -> 1 `i -> 0 `i -> 0 `i 139  ]
+{
+[; ;main.c: 15: PIR1 & = ~(1<<0);
 "15
-[e =| _TRISA -> << -> 1 `i -> 0 `i `uc ]
-[; ;main.c: 16: ANSEL | = (1<<0);
+[e =& _PIR1 -> ~ << -> 1 `i -> 0 `i `uc ]
+[; ;main.c: 16: TMR1L = 0xEF;
 "16
-[e =| _ANSEL -> << -> 1 `i -> 0 `i `uc ]
-[; ;main.c: 22: ADCON0 =0x00;
-"22
-[e = _ADCON0 -> -> 0 `i `uc ]
-[; ;main.c: 23: ADCON0|= 0b01000001;
-"23
-[e =| _ADCON0 -> -> 65 `i `uc ]
-[; ;main.c: 25: ADCON1 = 0;
-"25
-[e = _ADCON1 -> -> 0 `i `uc ]
-[; ;main.c: 26: ADCON1 |= (1<<7);
-"26
-[e =| _ADCON1 -> << -> 1 `i -> 7 `i `uc ]
-[; ;main.c: 27: TRISD = 0;
-"27
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;main.c: 28: TRISC = 0;
-"28
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;main.c: 29: _delay((unsigned long)((20)*(4000000/4000.0)));
-"29
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 30: lcd_init();
-"30
-[e ( _lcd_init ..  ]
-[; ;main.c: 32: TRISC &= ~(1<<2);
-"32
-[e =& _TRISC -> ~ << -> 1 `i -> 2 `i `uc ]
-[; ;main.c: 33: T2CON = 0B00000101;
-"33
-[e = _T2CON -> -> 5 `i `uc ]
-[; ;main.c: 34: PR2 = 249;
-"34
-[e = _PR2 -> -> 249 `i `uc ]
-[; ;main.c: 35: CCP1CON =0B00001100;
-"35
-[e = _CCP1CON -> -> 12 `i `uc ]
-[; ;main.c: 36: CCPR1L = 500 >> 2;
-"36
-[e = _CCPR1L -> >> -> 500 `i -> 2 `i `uc ]
-[; ;main.c: 38: while(1){
-"38
-[e :U 140 ]
-{
-[; ;main.c: 40: ADCON0 |= (1<<1);
-"40
-[e =| _ADCON0 -> << -> 1 `i -> 1 `i `uc ]
-[; ;main.c: 41: while( ADCON0 &(1<<1));
-"41
-[e $U 142  ]
-[e :U 143 ]
-[e :U 142 ]
-[e $ != & -> _ADCON0 `i << -> 1 `i -> 1 `i -> 0 `i 143  ]
-[e :U 144 ]
-[; ;main.c: 42: valor = (ADRESH<<8)+(ADRESL);
-"42
-[e = _valor + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
-[; ;main.c: 43: valor = valor*5;
-"43
-[e = _valor * _valor -> 5 `i ]
-[; ;main.c: 44: separa(valor);
-"44
-[e ( _separa (1 _valor ]
-[; ;main.c: 45: if(valor> 2000){
-"45
-[e $ ! > _valor -> 2000 `i 145  ]
-{
-[; ;main.c: 46: PORTD |= (1<<0);
-"46
-[e =| _PORTD -> << -> 1 `i -> 0 `i `uc ]
-"47
-}
-[; ;main.c: 47: }else {
-[e $U 146  ]
-[e :U 145 ]
-{
-[; ;main.c: 48: PORTD &= ~(1<<0);
-"48
-[e =& _PORTD -> ~ << -> 1 `i -> 0 `i `uc ]
-"49
-}
-[e :U 146 ]
-[; ;main.c: 49: }
-[; ;main.c: 50: _delay((unsigned long)((5)*(4000000/4000000.0)));
-"50
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"51
+[e = _TMR1L -> -> 239 `i `uc ]
+[; ;main.c: 17: TMR1H = 0xD8;
+"17
+[e = _TMR1H -> -> 216 `i `uc ]
+[; ;main.c: 18: periodic_interrupt =1 ;
+"18
+[e = _periodic_interrupt -> -> 1 `i `uc ]
+"19
 }
 [e :U 139 ]
-"38
-[e $U 140  ]
-[e :U 141 ]
-[; ;main.c: 51: }
-[; ;main.c: 53: }
-"53
+[; ;main.c: 19: }
+[; ;main.c: 20: }
+"20
 [e :UE 138 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"22
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 22: void main(void) {
+[e :U _main ]
+[f ]
+[; ;main.c: 25: TRISA | = (1<<0);
+"25
+[e =| _TRISA -> << -> 1 `i -> 0 `i `uc ]
+[; ;main.c: 26: ANSEL | = (1<<0);
+"26
+[e =| _ANSEL -> << -> 1 `i -> 0 `i `uc ]
+[; ;main.c: 32: ADCON0 =0x00;
+"32
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;main.c: 33: ADCON0|= 0b01000001;
+"33
+[e =| _ADCON0 -> -> 65 `i `uc ]
+[; ;main.c: 35: ADCON1 = 0;
+"35
+[e = _ADCON1 -> -> 0 `i `uc ]
+[; ;main.c: 36: ADCON1 &= ~(1<<7);
+"36
+[e =& _ADCON1 -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;main.c: 37: TRISD = 0;
+"37
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;main.c: 38: TRISC = 0;
+"38
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;main.c: 39: _delay((unsigned long)((20)*(4000000/4000.0)));
+"39
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 40: lcd_init();
+"40
+[e ( _lcd_init ..  ]
+[; ;main.c: 42: TRISC &= ~(1<<2);
+"42
+[e =& _TRISC -> ~ << -> 1 `i -> 2 `i `uc ]
+[; ;main.c: 43: T2CON = 0B00000101;
+"43
+[e = _T2CON -> -> 5 `i `uc ]
+[; ;main.c: 44: PR2 = 249;
+"44
+[e = _PR2 -> -> 249 `i `uc ]
+[; ;main.c: 45: CCP1CON =0B00001100;
+"45
+[e = _CCP1CON -> -> 12 `i `uc ]
+[; ;main.c: 46: CCPR1L = 500 >> 2;
+"46
+[e = _CCPR1L -> >> -> 500 `i -> 2 `i `uc ]
+[; ;main.c: 47: TMR1L = 0xEF;
+"47
+[e = _TMR1L -> -> 239 `i `uc ]
+[; ;main.c: 48: TMR1H = 0xD8;
+"48
+[e = _TMR1H -> -> 216 `i `uc ]
+[; ;main.c: 49: INTCON |= (1<<7)| (1<<6);
+"49
+[e =| _INTCON -> | << -> 1 `i -> 7 `i << -> 1 `i -> 6 `i `uc ]
+[; ;main.c: 50: PIR1 &= ~(1<<0);
+"50
+[e =& _PIR1 -> ~ << -> 1 `i -> 0 `i `uc ]
+[; ;main.c: 51: PIE1 |= (1<<0);
+"51
+[e =| _PIE1 -> << -> 1 `i -> 0 `i `uc ]
+[; ;main.c: 54: T1CON = 0B0000001;
+"54
+[e = _T1CON -> -> 1 `i `uc ]
+[; ;main.c: 55: while(1){
+"55
+[e :U 142 ]
+{
+[; ;main.c: 57: if (periodic_interrupt){
+"57
+[e $ ! != -> _periodic_interrupt `i -> -> -> 0 `i `uc `i 144  ]
+{
+[; ;main.c: 58: periodic_interrupt = 0;
+"58
+[e = _periodic_interrupt -> -> 0 `i `uc ]
+[; ;main.c: 59: _delay((unsigned long)((5)*(4000000/4000000.0)));
+"59
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 60: ADCON0 |= (1<<1);
+"60
+[e =| _ADCON0 -> << -> 1 `i -> 1 `i `uc ]
+[; ;main.c: 61: while( ADCON0 &(1<<1));
+"61
+[e $U 145  ]
+[e :U 146 ]
+[e :U 145 ]
+[e $ != & -> _ADCON0 `i << -> 1 `i -> 1 `i -> 0 `i 146  ]
+[e :U 147 ]
+[; ;main.c: 62: CCPR1L = ADRESH;
+"62
+[e = _CCPR1L _ADRESH ]
+[; ;main.c: 63: CCP1CON &= 0B11001111;
+"63
+[e =& _CCP1CON -> -> 207 `i `uc ]
+[; ;main.c: 64: CCP1CON != (ADRESL >> 2);
+"64
+[e != -> _CCP1CON `i >> -> _ADRESL `i -> 2 `i ]
+[; ;main.c: 67: separa(valor);
+"67
+[e ( _separa (1 _valor ]
+[; ;main.c: 68: PORTC | = (1<<0);
+"68
+[e =| _PORTC -> << -> 1 `i -> 0 `i `uc ]
+[; ;main.c: 69: PORTC & = ~(1<<1);
+"69
+[e =& _PORTC -> ~ << -> 1 `i -> 1 `i `uc ]
+"71
+}
+[e :U 144 ]
+"72
+}
+[e :U 141 ]
+"55
+[e $U 142  ]
+[e :U 143 ]
+[; ;main.c: 71: }
+[; ;main.c: 72: }
+[; ;main.c: 74: }
+"74
+[e :UE 140 ]
 }
